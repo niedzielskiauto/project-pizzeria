@@ -88,6 +88,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion(){
@@ -159,10 +160,25 @@
         // for each option in category
         for(let optionId in param.options) {
           const option = param.options[optionId];
-          console.log('wybrane opcje', option, optionId);
+          console.log(option);
+          const optionImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
+          console.log(optionImage);
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+          console.log(optionSelected);
+
+          if(optionImage) {
+            if(optionSelected) {
+              optionImage.classList.add(classNames.menuProduct.wrapperActive);
+            }
+            else {
+              optionImage.classList.remove(classNames.menuProduct.wrapperActive);
+            }
+          }
+
+          console.log(optionImage)
 
           if(formData[paramId] && formData[paramId].includes(optionId)) {
-
+          
             if (!option.default) {
 
               price += option.price;
