@@ -156,26 +156,26 @@
         const param = thisProduct.data.params[paramId];
        
         
-      // for each option in category
-      for(let optionId in param.options) {
-        const option = param.options[optionId];
-        console.log('wybrane opcje', option, optionId);
+        // for each option in category
+        for(let optionId in param.options) {
+          const option = param.options[optionId];
+          console.log('wybrane opcje', option, optionId);
 
-        if(formData[paramId] && formData[paramId].includes(optionId)) {
+          if(formData[paramId] && formData[paramId].includes(optionId)) {
 
-          if (!option.default == true) {
+            if (!option.default) {
 
-            price += option.price;
-          }
+              price += option.price;
+            }
 
-        } else {
+          } else {
 
-          if(option.default == true) {
+            if(option.default) {
 
-            price -= option.price;
+              price -= option.price;
+            }
           }
         }
-      }
        
       }
 
