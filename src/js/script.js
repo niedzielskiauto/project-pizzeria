@@ -177,7 +177,7 @@
 
           console.log(optionImage)
 
-          if(formData[paramId] && formData[paramId].includes(optionId)) {
+          if(optionSelected) {
           
             if (!option.default) {
 
