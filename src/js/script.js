@@ -203,8 +203,8 @@
         }
       }
 
-       /* Multiply price by amount */
-       price *= thisProduct.amountWidget.value;
+      /* Multiply price by amount */
+      price *= thisProduct.amountWidget.value;
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
